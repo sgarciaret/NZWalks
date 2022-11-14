@@ -20,6 +20,7 @@ builder.Services.AddDbContext<NZWalksDbContext>(options =>
 // Inject RegionRepository interface to Services so we can use RegionRepository in the controller
 builder.Services.AddScoped<IRegionRepository, RegionRepository>();
 builder.Services.AddScoped<IWalksRepository, WalksRepository>();
+builder.Services.AddScoped<IWalkDifficultyRepository, WalkDifficultyRepository>();
 
 // Inject AutoMapper
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
