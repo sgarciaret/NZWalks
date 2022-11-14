@@ -8,7 +8,7 @@ namespace NZWalksAPI.Profiles
         public RegionsProfile()
         {
             // Convert Domain model into DTO model
-            CreateMap<Models.Domain.Region, Models.DTO.RegionDTO>()
+            CreateMap<Models.Domain.Region, Models.DTO.Region>()
                 //.ForMember(dest => dest.Id, options => options.MapFrom(src => src.Id));   if properties hasn't the same name
                 .ReverseMap();
         }

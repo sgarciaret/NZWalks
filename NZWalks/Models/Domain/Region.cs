@@ -11,6 +11,6 @@
         public long Population { get; set; }
 
         // Navigation Propperty
-        public IEnumerable<Walk> Walkes { get; set; }
+        public IEnumerable<Walk> Walks { get; set; }
     }
 }

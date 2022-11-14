@@ -43,7 +43,7 @@ namespace NZWalksAPI.Controllers
             //    regionsDTO.Add(regionDTO);
             //});
 
-            var regionsDTO = mapper.Map<List<Models.DTO.RegionDTO>>(regions);
+            var regionsDTO = mapper.Map<List<Models.DTO.Region>>(regions);
 
             return Ok(regionsDTO);
         }
@@ -60,7 +60,7 @@ namespace NZWalksAPI.Controllers
                 return NotFound();
             }
 
-            var regionDTO = mapper.Map<Models.DTO.RegionDTO>(region);
+            var regionDTO = mapper.Map<Models.DTO.Region>(region);
 
             return Ok(regionDTO);
         }
@@ -70,7 +70,7 @@ namespace NZWalksAPI.Controllers
         {
             // Request(DTO) to Domain model
 
-            var region = new Region()
+            var region = new Models.Domain.Region()
             {
                 Code = addRegionRequest.Code,
                 Area = addRegionRequest.Area,
@@ -86,7 +86,7 @@ namespace NZWalksAPI.Controllers
 
             // Convert back to DTO
 
-            var regionDTO = new RegionDTO
+            var regionDTO = new Models.DTO.Region
             {
                 Id = region.Id,
                 Code = region.Code,
@@ -117,7 +117,7 @@ namespace NZWalksAPI.Controllers
 
             // Convert responseback to DTO
 
-            var regionDTO = new RegionDTO
+            var regionDTO = new Models.DTO.Region
             {
                 Id = region.Id,
                 Code = region.Code,
@@ -139,7 +139,7 @@ namespace NZWalksAPI.Controllers
         {
             // Convert DTO to domain model
 
-            var region = new Region()
+            var region = new Models.Domain.Region()
             {
                 Code = updateRegionRequest.Code,
                 Area = updateRegionRequest.Area,
@@ -162,7 +162,7 @@ namespace NZWalksAPI.Controllers
 
             // convert domain back to DTO
 
-            var regionDTO = new RegionDTO
+            var regionDTO = new Models.DTO.Region
             {
                 Id = region.Id,
                 Code = region.Code,
