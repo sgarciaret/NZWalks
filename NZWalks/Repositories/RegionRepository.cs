@@ -15,7 +15,7 @@ namespace NZWalksAPI.Repositories
 
         public async Task<Region> AddAsync(Region region)
         {
-            region.Id= Guid.NewGuid();
+            region.Id = Guid.NewGuid();
             await nZWalksDbContext.AddAsync(region);
             await nZWalksDbContext.SaveChangesAsync();
 
@@ -54,11 +54,11 @@ namespace NZWalksAPI.Repositories
             if (existingRegion == null)
                 return null;
 
-            existingRegion.Code= region.Code;
-            existingRegion.Name= region.Name;
-            existingRegion.Lat= region.Lat;
-            existingRegion.Long= region.Long;
-            existingRegion.Population= region.Population;
+            existingRegion.Code = region.Code;
+            existingRegion.Name = region.Name;
+            existingRegion.Lat = region.Lat;
+            existingRegion.Long = region.Long;
+            existingRegion.Population = region.Population;
 
             await nZWalksDbContext.SaveChangesAsync();
 

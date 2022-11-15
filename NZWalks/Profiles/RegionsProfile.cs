@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace NZWalksAPI.Profiles
 {
-    public class RegionsProfile: Profile
+    public class RegionsProfile : Profile
     {
         public RegionsProfile()
         {

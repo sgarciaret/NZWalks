@@ -40,7 +40,7 @@ namespace NZWalksAPI.Repositories
         public async Task<IEnumerable<Walk>> GetAllAsync()
         {
             // Write Include to add navigation properties into the response
-            return await 
+            return await
                 nZWalksDbContext.Walks
                 .Include(x => x.Region)
                 .Include(x => x.WalkDifficulty)
@@ -67,7 +67,7 @@ namespace NZWalksAPI.Repositories
             existingWalk.WalkDifficultyId = walk.WalkDifficultyId;
             existingWalk.Length = walk.Length;
             existingWalk.RegionId = walk.RegionId;
-            existingWalk.Name= walk.Name;
+            existingWalk.Name = walk.Name;
 
             await nZWalksDbContext.SaveChangesAsync();
 

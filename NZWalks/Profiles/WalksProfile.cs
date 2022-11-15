@@ -2,7 +2,7 @@
 
 namespace NZWalksAPI.Profiles
 {
-    public class WalksProfile: Profile
+    public class WalksProfile : Profile
     {
         public WalksProfile()
         {
