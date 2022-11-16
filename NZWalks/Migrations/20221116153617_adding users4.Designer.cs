@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NZWalks.Data;
 
@@ -11,9 +12,10 @@ using NZWalks.Data;
 namespace NZWalksAPI.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    partial class NZWalksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221116153617_adding users4")]
+    partial class addingusers4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +76,7 @@ namespace NZWalksAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("EmailAddress")
+                    b.Property<string>("EmailAdress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -115,9 +117,7 @@ namespace NZWalksAPI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Users_Roles");
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.Walk", b =>
@@ -165,15 +165,15 @@ namespace NZWalksAPI.Migrations
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.User_Role", b =>
                 {
-                    b.HasOne("NZWalksAPI.Models.Domain.Role", "Role")
+                    b.HasOne("NZWalksAPI.Models.Domain.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NZWalksAPI.Models.Domain.User", "User")
+                    b.HasOne("NZWalksAPI.Models.Domain.Role", "Role")
                         .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
